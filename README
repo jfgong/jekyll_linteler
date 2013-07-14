@@ -1,0 +1,12 @@
+#把所有内容加入本地git库。
+
+$ git add .
+$ git commit -m "first post"
+
+#将本地内容推送到github上的库
+
+$ git remote add origin https://github.com/username/jekyll_demo.git
+
+$ git push origin gh-pages
+
+#上传成功之后，等10分钟左右，访问http://username.github.com/jekyll_demo/就可以看到Blog已经生成了
