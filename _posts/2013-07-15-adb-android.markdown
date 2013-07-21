@@ -45,6 +45,7 @@ title: adb调试android
 	The "adb install xx.apk" or "adb push xx.apk /system/app" installs software on connected Android emulator or device.
 
 Reference:
+
 [Linux下Android ADB驱动安装详解](http://blog.csdn.net/zhenwenxian/article/details/5901350)
 [adb shell 连接手机使用Root权限，sqlite](http://www.pocketdigi.com/20110409/238.html)
 [android adb push 与 adb install的比较(两种安装APK的方法)](http://blog.csdn.net/xuxinshao/article/details/7182002)
