@@ -1,11 +1,10 @@
 ---
 layout: post 
-title:  "Learning markdown"
+title:  "write in markdown"
 ---
 
 #标题#
 ###三级标题###
-#####五级标题#####
 
 #换行#
 使用1个或多个空行分隔内容段来生成段落;或者在段尾输入**2个以上的空格**,然后回车
@@ -15,7 +14,7 @@ title:  "Learning markdown"
 
 #列表#
 1\.有序列表    
-\*,+,-无序列表
+\*,\+,\-无序列表
 
 #代码#
 1.行内代码
@@ -30,10 +29,11 @@ title:  "Learning markdown"
     which grep
 
 #链接#
-更多的markdown语法学习可以参见[markdown官网][office site],感谢阅读
+更多的markdown语法学习可以参见[markdown官网][office site]
 
 #分割线#
-在一行内使用3个以上的\*,-,\_来建立分割线
 
-[office site]:    http://daringfireball.net/projects/markdown/syntax 
+在一行内使用3个以上的\*,\-,\_来建立分割线
+
+[office site]:http://daringfireball.net/projects/markdown/syntax 
 ****
