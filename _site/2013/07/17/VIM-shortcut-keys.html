@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>VIM简明使用指南</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">Random Bug's site</a></h1>
+              <a class="extra" href="/">home</a>
+            </div>
+
+                <h2>VIM简明使用指南</h2>
+
+<p>虽然使用vim已经有很长的时间了，但是一直都是依靠着上下左右键和鼠标，并没有认真细致的去学习过，因此也未能体会到vim的强大之处，惭愧的是，因为工作需要，我有重新拾起了vim，抱着不该逃避，把事情做好的想法，我有必要认真梳理梳理vim的用法了.</p>
+
+<p>
+
+控制
+	:set nu显示行数
+	0行首，$行尾
+	#向前搜索光标所在word，*向后搜索光标所在word
+	fx，当前行光标后的第一个字符x，Fx当前行光标前的第一个字符x
+	w下一个word(W跳过标点)，b前一个word(B跳过标点)，e跳到word尾
+	gg文档顶，G文档底
+	{ 跳转到上一空行、 } 跳转到下一空行
+	[[ 跳转到上一函数"{"起始处 、 ]] 跳转到下一函数"{"起始处
+	[{ 转到上一个第一列"{" 、 }] 转到下一个第一列"{"
+	ctrl-e(上滚1行)和 ctrl-y(下滚1行)
+	ctrl-u(上翻半屏)和 ctrl-d(下翻半屏)
+
+编辑
+	插入：I(行首)－i(光标前)－a(光标后)－A(行尾)
+	ndd：剪切n行，意即delete/cut，可p粘贴
+	nyy：复制n行，意即yank，等效于(n-1)y
+	nyw：复制n个word(但只从光标处开始)
+	d0：剪切至行首，不含游标；d$：剪切至行尾，含游标
+	y0：复制至行首，不含游标；y$：复制至行尾，含游标
+	yi(：复制光标所在()中的内容，意即y in ()
+	di(：删除光标所在()中的内容，意即d in ()
+	vi(：选中光标所在()中的内容，意即v in ()
+	v进入visual模式，选中字符，y复制
+	rx：替换光标所在字符为x，意即replace x
+	p,P：粘贴，其中，p将数据粘贴到光标的下一行，P粘贴在光标的上一行
+	x,X：其中x为向后删除一个字符（相当于del键），X为向前删除一个字符（相当于backspace键）
+	u:撤销;ctrl+r:反撤销
+	O：回车换行，并切换到Insert模式
+	ZZ 保存并退出
+
+</p>
+<p>Posted by randombug @ 17 Jul 2013</p>
+
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>
