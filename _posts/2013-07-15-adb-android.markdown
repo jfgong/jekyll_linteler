@@ -44,7 +44,7 @@ title: adb调试android
 	The "adb pull <remote> <local>" copies a file or folder from the remote emulator or device to the local system.    
 	The "adb install xx.apk" or "adb push xx.apk /system/app" installs software on connected Android emulator or device.
 
-Reference:
+#Reference:#
 
 [Linux下Android ADB驱动安装详解](http://blog.csdn.net/zhenwenxian/article/details/5901350)
 [adb shell 连接手机使用Root权限，sqlite](http://www.pocketdigi.com/20110409/238.html)
