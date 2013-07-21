@@ -9,7 +9,7 @@ title: adb调试android
 
 	Bus 003 Device 003: ID 19d2:1382 ZTE WCDMA Technologies MSM
 
-在\/etc\/udev\/rules.d\/目录下创建配置文件: android\_smartphone.rules
+在/etc/udev/rules.d/目录下创建配置文件: android\_smartphone.rules
 
 配置参数:
 
