@@ -19,15 +19,17 @@ title: shell学习笔记
 
 	jobs (显示后台进程) -- fg N (转到前台running) -- bg N (转到后台running)
 
-#重定向#
-
-	>  写入	>> 追加
-
 #输入输出#
 
 	#0 标准输入,1 标准输出,2 标准错误
 	echo -e "your name: \c" --> read name
 	cat > file --> content of file<ctrl-d>
+
+#重定向#
+
+	>  写入	>> 追加
+	#command以file文件作为标准输入,标准输出和错误都输出到out.file
+	command < file > out.file 2>&1
 
 #管道命令#
 

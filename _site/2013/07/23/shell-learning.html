@@ -39,22 +39,17 @@ find ./ -name &quot;[a-z]*.c&quot; | xargs grep &quot;string&quot;</code></pre>
 <pre><code>firefox 1&gt;/dev/null 2&gt;&amp;1 &amp;	//后台running
 firefox --&gt; ctrl+z --&gt; bg	//前台running --&gt; 后台stopped
 
-jobs				//显示后台进程
-fg N				//转到前台running
-bg N				//转到后台running</code></pre>
+jobs (显示后台进程) -- fg N (转到前台running) -- bg N (转到后台running)</code></pre>
 
 <h1 id='id20'>重定向</h1>
 
-<pre><code>&gt;  写入
-&gt;&gt; 追加</code></pre>
+<pre><code>&gt;  写入	&gt;&gt; 追加</code></pre>
 
-<h1 id='id21'>输入</h1>
+<h1 id='id21'>输入输出</h1>
 
-<pre><code>echo -e &quot;your name: \c&quot;
-read name
-
-cat &gt; file
-content of file&lt;ctrl-d&gt;</code></pre>
+<pre><code>#0 标准输入,1 标准输出,2 标准错误
+echo -e &quot;your name: \c&quot; --&gt; read name
+cat &gt; file --&gt; content of file&lt;ctrl-d&gt;</code></pre>
 
 <h1 id='id22'>管道命令</h1>
 
