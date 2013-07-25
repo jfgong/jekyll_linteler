@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post 
 title: 搭建gh-pages博客
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post 
 title: 你将何处去
 ---
 

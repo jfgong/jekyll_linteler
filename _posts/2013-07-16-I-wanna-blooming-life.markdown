@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post 
 title: 我想要怒放的生命
 ---
 

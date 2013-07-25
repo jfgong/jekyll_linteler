@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post 
 title: VIM常用的快捷键
 ---
 

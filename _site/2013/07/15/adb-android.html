@@ -22,56 +22,62 @@
             </div>
 
                 <h2>adb调试android</h2>
+<p class="meta">15 Jul 2013</p>
 
-1.配置文件
+<div class="post">
+<h1 id='id12'>配置文件</h1>
 
-断开手机物理连接后重新连上，比较两种条件下的lsusb输出差别：
-Bus 003 Device 003: ID 19d2:1382 ZTE WCDMA Technologies MSM
+<p>断开手机物理连接后重新连上，比较两种条件下的lsusb输出差别：</p>
 
-在/etc/udev/rules.d/目录下创建配置文件: android_smartphone.rules
+<pre><code>Bus 003 Device 003: ID 19d2:1382 ZTE WCDMA Technologies MSM</code></pre>
 
-配置参数:
+<p>在/etc/udev/rules.d/目录下创建配置文件: android_smartphone.rules</p>
 
-#ZTE U880
-SUBSYSTEM=="usb", SYSFS{"High Tech Computer Corp."}=="19D2", MODE="0666"
-其中的19D2取自lsusb的输出.
+<p>配置参数:</p>
 
-设定配置文件的权限
+<pre><code>#ZTE U880
+SUBSYSTEM==&quot;usb&quot;, SYSFS{&quot;High Tech Computer Corp.&quot;}==&quot;19D2&quot;, MODE=&quot;0666&quot;</code></pre>
 
-sudo chmod a+rx /etc/udev/rules.d/android_smartphone.rules
-sudo /etc/init.d/udev restart
+<p>其中的19D2取自lsusb的输出.</p>
 
-2.重启adb服务
+<p>设定配置文件的权限</p>
 
-sudo adb kill-server
-sudo adb devices
-没配置adb环境变量的话，需要提供adb执行文件的绝对地址
+<pre><code>sudo chmod a+rx /etc/udev/rules.d/android_smartphone.rules
+sudo /etc/init.d/udev restart</code></pre>
 
+<h1 id='adb'>重启adb服务</h1>
 
-3.建立连接
-adb shell即可连上android手机
-进入手机后权限是$，执行su，获得root权限
+<pre><code>sudo adb kill-server
+sudo adb devices</code></pre>
 
-4.拷贝文件
-adb push Downloads/怒放的生命.mp3 /sdcard/music/
-注意是在桌面环境下执行
+<p>没配置adb环境变量的话，需要提供adb执行文件的绝对地址</p>
 
-其他操作：
-The "adb push <local> <remote>" copies a file or folder from the local system to the remote emulator or device.
-The "adb pull <remote> <local>" copies a file or folder from the remote emulator or device to the local system.
-The "adb install xx.apk" or "adb push xx.apk /system/app" installs software on connected Android emulator or device.
+<h1 id='id13'>建立连接</h1>
 
-<p>
-Reference:
-Linux下Android ADB驱动安装详解
-http://blog.csdn.net/zhenwenxian/article/details/5901350
-adb shell 连接手机使用Root权限，sqlite
-http://www.pocketdigi.com/20110409/238.html
-android adb push 与 adb install的比较（两种安装APK的方法）
-http://blog.csdn.net/xuxinshao/article/details/7182002
-</p>
+<p><code>adb shell</code>即可连上android手机 进入手机后权限是$，执行<code>su</code>，获得root权限</p>
+
+<h1 id='id14'>拷贝文件</h1>
+
+<pre><code>adb push Downloads/怒放的生命.mp3 /sdcard/music/</code></pre>
+
+<p>注意是在桌面环境下执行</p>
+
+<p>其他操作：</p>
+
+<pre><code>The &quot;adb push &lt;local&gt; &lt;remote&gt;&quot; copies a file or folder from the local system to the remote emulator or device.    
+The &quot;adb pull &lt;remote&gt; &lt;local&gt;&quot; copies a file or folder from the remote emulator or device to the local system.    
+The &quot;adb install xx.apk&quot; or &quot;adb push xx.apk /system/app&quot; installs software on connected Android emulator or device.</code></pre>
+
+<h1 id='reference'>Reference:</h1>
+
+<p><a href='http://blog.csdn.net/zhenwenxian/article/details/5901350'>Linux下Android ADB驱动安装详解</a></p>
+
+<p><a href='http://www.pocketdigi.com/20110409/238.html'>adb shell 连接手机使用Root权限，sqlite</a></p>
+
+<p><a href='http://blog.csdn.net/xuxinshao/article/details/7182002'>android adb push 与 adb install的比较(两种安装APK的方法)</a></p>
 
 <p>Posted by randombug @ 15 Jul 2013</p>
+</div>
 
 
           </div>

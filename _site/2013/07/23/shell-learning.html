@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>shell学习笔记</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">Random Bug's site</a></h1>
+            </div>
+
+                <h2>shell学习笔记</h2>
+<p class="meta">23 Jul 2013</p>
+
+<div class="post">
+<h1 id='shell'>shell学习笔记</h1>
+
+<p>+用户默认的文件权限模式:umask</p>
+
+<p>+当前目录下查找含有string字符的c文件,且该文件以小写字母开头</p>
+
+<pre><code>将find文件查找的输出作为grep &quot;string&quot; 的参数
+find ./ -name &quot;[a-z]*.c&quot; | xargs grep &quot;string&quot;</code></pre>
+
+<p>+前台后台进程的切换</p>
+
+<pre><code>firefox 1&gt;/dev/null 2&gt;&amp;1 &amp;	//后台running
+firefox --&gt; ctrl+z --&gt; bg	//前台running --&gt; 后台stopped
+
+jobs				//显示后台进程
+fg N				//转到前台running
+bg N				//转到后台running</code></pre>
+
+<p>+重定向</p>
+
+<pre><code>&gt;  写入
+&gt;&gt; 追加</code></pre>
+
+<p>+输入</p>
+
+<pre><code>echo -e &quot;your name: \c&quot;
+read name
+
+cat &gt; file
+content of file&lt;ctrl-d&gt;</code></pre>
+
+<p>+</p>
+
+<p>Posted by randombug @ 23 Jul 2013</p>
+</div>
+
+
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>
