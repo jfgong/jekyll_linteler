@@ -17,9 +17,7 @@ title: shell学习笔记
 	firefox 1>/dev/null 2>&1 &	//后台running
 	firefox --> ctrl+z --> bg	//前台running --> 后台stopped
 
-	jobs				//显示后台进程
-	fg N				//转到前台running
-	bg N				//转到后台running
+	jobs (显示后台进程) -- fg N (转到前台running) -- bg N (转到后台running)
 
 #重定向#
 
