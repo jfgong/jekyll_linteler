@@ -35,5 +35,12 @@ title:  "write in markdown"
 
 在一行内使用3个以上的\*,\-,\_来建立分割线
 
+----
+
+#备注#
+
+1.在有序列表后跟随code段时,有时code会识别成text
+
+> 需要在中间空上一行,或者,将有序列表改成无序列表
+
 [office site]:http://daringfireball.net/projects/markdown/syntax 
-****
