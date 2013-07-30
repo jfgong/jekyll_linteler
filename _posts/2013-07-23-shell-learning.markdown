@@ -7,36 +7,40 @@ title: shell学习笔记
 
 #用户默认的文件权限模式:umask#
 
-#当前目录下查找含有string字符的c文件,且该文件以小写字母开头#
-
-	#将find文件查找的输出作为grep "string" 的参数
+#查找#
+	#将find输出作为grep "string" 的输入,无xargs,查找的是文件名
 	find ./ -name "[a-z]*.c" | xargs grep "string"
+	grep "string" file.in
 
 #前台后台进程的切换#
-
 	firefox 1>/dev/null 2>&1 &	//后台running
 	firefox --> ctrl+z --> bg	//前台running --> 后台stopped
 
 	jobs (显示后台进程) -- fg N (转到前台running) -- bg N (转到后台running)
 
 #输入输出#
-
 	#0 标准输入,1 标准输出,2 标准错误
+	command file.in <==> command < file.in <==> file.in | command
 	echo -e "your name: \c" --> read name
 	cat > file --> content of file<ctrl-d>
 
-#重定向#
-
-	>  写入	>> 追加
-	#command以file文件作为标准输入,标准输出和错误都输出到out.file
-	command < file > out.file 2>&1
-
-#管道命令#
-
-	#列出系统中所有的文件系统
+#重定向-管道#
+	# >写入 >>追加
+	sort < file.in > file.out	//>操作会删除file.out的全部内容
+	#标准输出和标准错误都输出到file.out
+	command > file.out 2>&1 <==> command >& file.out
+	command 1>file.out 2>file.out	//与上述不同,2>会在file.out开始处覆盖写入
+	#列出系统中所有的文件系统,注意重定向不会回显,而tee会回显
 	df -k | awk '{print $1}' | grep -v "Filesystem" | sed 's/\/dev\///g' | tee file.system
 	cat file.system
-#输出#
+
+#分界符#
+	cat >> file.out << eof		//接受输入知道eof字符出现
+
+#命令执行顺序#
+	&&  ||
+	(command1;command2) 当前shell执行
+	{command1;command2} 子shell中执行
 
 
 Posted by randombug @ {{ page.date | date_to_string }}
