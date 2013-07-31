@@ -42,6 +42,17 @@ title: grep-awk-sed学习
 	sed 's/Mr/Bruce &/g' file.in	//在Mr前追加Bruce
 	/pattern/ i\ a\	c\		//i前插a后插,类比vim的insert,c修改行
 
+#sort排序#
+	sort -t: 域0 : 域1 : 域2 : ...	//可结合tail,head获得极值
+	sort -t: -k2 file.in		//根据域1来分类,将域看作是从1开始
+	sort -t: -k3 -n  file.in 	//当域2是数值时,-n,否则数值被视作字符
+	sort -u -k2 -k3 file.in 	//去除重复行,先以域1排序,再以域2排序
+
+#tr删除替换(都可用sed来实现)#
+	tr -cds ["from"] ["to"] <file	//c:from的补集-d删除-s去重
+	tr -s ["\n"] <file.in		//对空行去重
+	tr -s [":"] ["\t"] <file.in	//将:去重(保留一个),然后被替换成Tab
+	tr ["A-Z"] ["a-z"] <file.in	//大小写转换
 
 
 Posted by randombug @ {{ page.date | date_to_string }}
