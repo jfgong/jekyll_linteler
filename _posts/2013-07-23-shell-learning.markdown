@@ -7,6 +7,10 @@ title: shell学习笔记
 
 #用户默认的文件权限模式:umask#
 
+#环境变量#
+	echo "The PATH is: ${PATH:-not set}"	//判断环境变量是否设置
+	echo "The TIME is: ${TIME:=15:37}"	//若未设置,顺便赋值
+
 #查找#
 	#将find输出作为grep "string" 的输入,无xargs,查找的是文件名
 	find ./ -name "[a-z]*.c" | xargs grep "string"
@@ -41,6 +45,9 @@ title: shell学习笔记
 	&&  ||
 	(command1;command2) 当前shell执行
 	{command1;command2} 子shell中执行
+
+#条件判断#
+	test -d file <==> [ -d file ]	//d目录f正规文件L符号链接rwx读写执行
 
 
 Posted by randombug @ {{ page.date | date_to_string }}
