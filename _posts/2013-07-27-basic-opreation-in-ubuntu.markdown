@@ -25,21 +25,11 @@ title: liunx基本概念和操作
 	./script.sh		//子shell继承环境变量
 	source ./script.sh	//在当前shell中已定义
 
-#变量参数#
-	$0 脚本名,应用名	$[1-9]参数
-	$# 参数个数
-	$$ 进程ID		$? 退出状态,0表示无错误 
-	$@ 使用""括起每个参数	$* 显示所有参数,可超过9个
-
 #压缩解压#
 	tar -zcvf shell.tar.gz	shell/	//压缩成gzip文件
 	tar -zxvf shell.tar.gz		//将gzip文件解
 	tar -jcvf shell.tar.bz2 shell/	//压缩为bz2文件
 	tar -jxvf shell.tar.bz2		//将bz2文件解压
-
-#搜索文件#
-	find ./ -empty -type d		//搜索当前目录下的空文件夹
-	find ./ -empty -type f		//搜索当前目录下的空文件
 
 #截屏#
 	Alt + Printscreen	//活动窗口

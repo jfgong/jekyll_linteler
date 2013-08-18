@@ -11,10 +11,19 @@ title: shell学习笔记
 	echo "The PATH is: ${PATH:-not set}"	//判断环境变量是否设置
 	echo "The TIME is: ${TIME:=15:37}"	//若未设置,顺便赋值
 
+#变量参数#
+	$0 脚本名,应用名        $[1-9]参数
+	$# 参数个数
+	$$ 进程ID               $? 退出状态,0表示无错误
+	$@ 使用""括起每个参数   $* 显示所有参数,可超过9个
+
 #查找#
 	#将find输出作为grep "string" 的输入,无xargs,查找的是文件名
 	find ./ -name "[a-z]*.c" | xargs grep "string"
 	grep "string" file.in
+	find ./ -empty -type d          //搜索当前目录下的空文件夹
+	find ./ -empty -type f          //搜索当前目录下的空文件
+	find ./ -name "*" -mmin -10	//过去10分钟修改的文件
 
 #前台后台进程的切换#
 	firefox 1>/dev/null 2>&1 &	//后台running
@@ -53,5 +62,8 @@ title: shell学习笔记
 
 #循环#
 	while read LINE - do - done < file.in
+
+#定义shell函数#
+	source function.sh	//载入shell,以便在脚本和命令行中调用,set查看
 
 Posted by randombug @ {{ page.date | date_to_string }}
