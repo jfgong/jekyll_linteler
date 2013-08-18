@@ -37,10 +37,13 @@ title: liunx基本概念和操作
 	tar -jcvf shell.tar.bz2 shell/	//压缩为bz2文件
 	tar -jxvf shell.tar.bz2		//将bz2文件解压
 
+#搜索文件#
+	find ./ -empty -type d		//搜索当前目录下的空文件夹
+	find ./ -empty -type f		//搜索当前目录下的空文件
+
 #截屏#
 	Alt + Printscreen	//活动窗口
 	Shift + Printscreen	//自定义窗口
 	Ctrl + Printscreen	//全屏幕拷贝至粘贴板
-
 
 Posted by randombug @ {{ page.date | date_to_string }}
