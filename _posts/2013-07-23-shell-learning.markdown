@@ -47,7 +47,11 @@ title: shell学习笔记
 	{command1;command2} 子shell中执行
 
 #条件判断#
+	#注意shell中0为真,其它为假
 	test -d file <==> [ -d file ]	//d目录f正规文件L符号链接rwx读写执行
+	-a 逻辑与and  -o 逻辑或or  ! 逻辑否
 
+#循环#
+	while read LINE - do - done < file.in
 
 Posted by randombug @ {{ page.date | date_to_string }}
