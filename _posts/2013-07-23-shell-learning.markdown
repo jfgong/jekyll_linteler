@@ -21,7 +21,7 @@ title: shell学习笔记
 	#将find输出作为grep "string" 的输入,无xargs,查找的是文件名
 	find ./ -name "[a-z]*.c" | xargs grep "string"
 	grep "string" file.in
-	find ./ -empty -type d          //搜索当前目录下的空文件夹
+	find ./ -empty -type d          //搜索当前目录下的空目录
 	find ./ -empty -type f          //搜索当前目录下的空文件
 	find ./ -name "*" -mmin -10	//过去10分钟修改的文件
 
@@ -65,5 +65,6 @@ title: shell学习笔记
 
 #定义shell函数#
 	source function.sh	//载入shell,以便在脚本和命令行中调用,set查看
+	shift VS getopts	//get options
 
 Posted by randombug @ {{ page.date | date_to_string }}
