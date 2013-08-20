@@ -67,4 +67,8 @@ title: shell学习笔记
 	source function.sh	//载入shell,以便在脚本和命令行中调用,set查看
 	shift VS getopts	//get options
 
+#调试#
+	set -x		//打开shell调试模式,先输出命令,再输出结果
+	set +x		//关闭shell调试模式,搭配echo进行调试
+
 Posted by randombug @ {{ page.date | date_to_string }}
