@@ -36,6 +36,7 @@ title: shell学习笔记
 	command file.in <==> command < file.in <==> file.in | command
 	echo -e "your name: \c" --> read name
 	cat > file --> content of file<ctrl-d>
+	cat >> file << EOF		//向file追加内容,以EOF结束
 
 #重定向-管道#
 	# >写入 >>追加
@@ -46,9 +47,6 @@ title: shell学习笔记
 	#列出系统中所有的文件系统,注意重定向不会回显,而tee会回显
 	df -k | awk '{print $1}' | grep -v "Filesystem" | sed 's/\/dev\///g' | tee file.system
 	cat file.system
-
-#分界符#
-	cat >> file.out << eof		//接受输入知道eof字符出现
 
 #命令执行顺序#
 	&&  ||
