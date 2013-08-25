@@ -20,6 +20,7 @@ title: shell学习笔记
 #查找#
 	#将find输出作为grep "string" 的输入,无xargs,查找的是文件名
 	find ./ -name "[a-z]*.c" | xargs grep "string"
+	find ./ -name "*" -print0 | xargs -0 grep "string"
 	grep "string" file.in
 	find ./ -empty -type d          //搜索当前目录下的空目录
 	find ./ -empty -type f          //搜索当前目录下的空文件
