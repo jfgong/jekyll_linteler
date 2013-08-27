@@ -36,4 +36,8 @@ title: liunx基本概念和操作
 	Shift + Printscreen	//自定义窗口
 	Ctrl + Printscreen	//全屏幕拷贝至粘贴板
 
+#编码转换#
+	//字幕编码多为gbk，将文件编码转换为utf8
+	iconv -f gbk -t utf8 Blood Diamond.srt > Blood Diamond-utf8.srt
+
 Posted by randombug @ {{ page.date | date_to_string }}
