@@ -24,19 +24,18 @@ title: adb调试android
 	sudo /etc/init.d/udev restart
 
 #重启adb服务#
-
+	没配置adb环境变量的话，需要提供adb执行文件的绝对地址
 	sudo adb kill-server
 	sudo adb devices
-没配置adb环境变量的话，需要提供adb执行文件的绝对地址
-
 
 #建立连接#
-`adb shell`即可连上android手机
-进入手机后权限是$，执行`su`，获得root权限
+	`adb shell`即可连上android手机
+	进入手机后权限是$，执行`su`，获得root权限
 
-#拷贝文件#
+#拷贝安装#
+	注意是在桌面环境下执行
 	adb push Downloads/怒放的生命.mp3 /sdcard/music/
-注意是在桌面环境下执行
+	adb install JetBoy.apk
 
 其他操作：
 
