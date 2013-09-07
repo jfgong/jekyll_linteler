@@ -13,7 +13,7 @@ title: shell学习笔记
 
 #变量参数#
 	$0 脚本名,应用名        $[1-9]参数
-	$# 参数个数
+	$# 参数个数		不包含$0在内
 	$$ 进程ID               $? 退出状态,0表示无错误
 	$@ 使用""括起每个参数   $* 显示所有参数,可超过9个
 
@@ -69,5 +69,23 @@ title: shell学习笔记
 #调试#
 	set -x		//打开shell调试模式,先输出命令,再输出结果
 	set +x		//关闭shell调试模式,搭配echo进行调试
+
+#交互shell编程#
+	read ANS
+	case $ANS in
+	    y|Y)
+	        command
+	    ;;
+	    n|N);;
+	esac
+
+#signal信号和trap#
+	1, 2(ctrl-c), 3, 9(无条件终止),15
+	trap "" signal(s)	//忽略信号
+	trap "function" 2 3	//捕获信号2,3后执行function
+
+#date#
+	date +%m%d%y		//月日年
+	date +%m-%d-%y		//月-日-年
 
 Posted by randombug @ {{ page.date | date_to_string }}
