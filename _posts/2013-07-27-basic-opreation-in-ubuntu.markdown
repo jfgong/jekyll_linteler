@@ -43,4 +43,16 @@ title: liunx基本概念和操作
 #disk usage#
 	du -[ahs]		//a(每个文件)s(总计)h(human)
 
+#几种查找
+	find		//针对文件
+	locate		//针对文件,在数据库文件中搜索,类似find -m,不搜索具体目录,比find快
+	whereis		//针对命令,搜索二进制(-b)man说明文件(-m)源文件(-s)
+	which		//针对命令,在$PATH指定的路径中搜索,显示命令的路径
+	type		//针对命令,命令由shell自带的，还是由shell外部的独立二进制文件提供
+
+#问题
+1.sudo提示command not found
+  在/bin或者/usr/bin中添加具体command的link
+
+
 Posted by randombug @ {{ page.date | date_to_string }}
