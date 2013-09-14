@@ -52,7 +52,8 @@ title: liunx基本概念和操作
 
 #问题
 1.sudo提示command not found
-  在/bin或者/usr/bin中添加具体command的link
+
+在/bin或者/usr/bin中添加具体command的link
 
 
 Posted by randombug @ {{ page.date | date_to_string }}
