@@ -10,8 +10,8 @@ title: 更新照片的文件名
 
 
 通过`grep -ao`过滤得到照片的创建时间
-	#!/bin/sh 
 
+	#!/bin/sh 
 	sourceDir=$1
 	destDir=$2
 	mkdir $destDir
