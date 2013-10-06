@@ -21,7 +21,8 @@ title: grep-awk-sed学习
 	grep -o "string" file | wc -l	//匹配次数
 	grep -n "\<string\>" file.in	//精确匹配(忽略标点符号)
 	grep 'a\{2,4\}' file.in		//字符a出现2次至4次
-	grep -E 'string1|string2' file.in
+	grep -E 'string1|string2' file.in		//行中含有string1或string2
+	grep -rl string1 * | xargs grep -l string2	//文件中含有string1和string2
 	grep -rn "string" *		//当前目录下所有文件中搜索字符
 
 #awk搜索#
