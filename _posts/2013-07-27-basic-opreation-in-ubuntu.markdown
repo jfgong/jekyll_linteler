@@ -31,11 +31,11 @@ title: liunx基本概念和操作
 	tar -jcvf shell.tar.bz2 shell/	//压缩为bz2文件
 	tar -jxvf shell.tar.bz2		//将bz2文件解压
 
-#截屏#
+#截图#
 	Alt + Printscreen		//活动窗口
 	Shift + Printscreen		//自定义窗口
 	Ctrl + Printscreen		//全屏幕拷贝至粘贴板
-	sleep 5; gnome-screenshot	//延迟5秒,及时打开菜单,等待截图程序启动
+	sleep 5; gnome-screenshot	//截取菜单
 
 #编码转换#
 	//字幕编码多为gbk，将文件编码转换为utf8
