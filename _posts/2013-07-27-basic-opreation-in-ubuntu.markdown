@@ -35,6 +35,8 @@ title: liunx基本概念和操作
 	Alt + Printscreen	//活动窗口
 	Shift + Printscreen	//自定义窗口
 	Ctrl + Printscreen	//全屏幕拷贝至粘贴板
+	//延迟5秒,及时打开菜单,等待截图程序启动
+	sleep 5;gnome-screenshot
 
 #编码转换#
 	//字幕编码多为gbk，将文件编码转换为utf8
@@ -42,10 +44,6 @@ title: liunx基本概念和操作
 
 #disk usage#
 	du -[ahs]		//a(每个文件)s(总计)h(human)
-
-#菜单截图
-	//延迟5秒,及时打开菜单,等待截图程序启动
-	sleep 5;gnome-screenshot
 
 #几种查找
 	find		//针对文件
