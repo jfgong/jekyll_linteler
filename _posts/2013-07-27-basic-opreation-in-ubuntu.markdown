@@ -35,7 +35,7 @@ title: liunx基本概念和操作
 	Alt + Printscreen		//活动窗口
 	Shift + Printscreen		//自定义窗口
 	Ctrl + Printscreen		//全屏幕拷贝至粘贴板
-	sleep 5; gnome-screenshot	//截取菜单
+	sleep 5; gnome-screenshot	//再用ksnapshot截取菜单
 
 #编码转换#
 	//字幕编码多为gbk，将文件编码转换为utf8
