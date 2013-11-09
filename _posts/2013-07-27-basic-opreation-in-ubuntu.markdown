@@ -43,6 +43,10 @@ title: liunx基本概念和操作
 #disk usage#
 	du -[ahs]		//a(每个文件)s(总计)h(human)
 
+#菜单截图
+	//延迟5秒,及时打开菜单,等待截图程序启动
+	sleep 5;gnome-screenshot
+
 #几种查找
 	find		//针对文件
 	locate		//针对文件,在数据库文件中搜索,类似find -m,不搜索具体目录,比find快
