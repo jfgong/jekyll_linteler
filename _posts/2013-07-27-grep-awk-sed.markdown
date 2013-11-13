@@ -32,6 +32,7 @@ title: grep-awk-sed学习
 	[!]~: awk '$0 ~ /str/' file.in	//目标模式/pattern/,默认输出$0
 	awk '{if($6 > $7) print $1}' file.in
 	awk 'BEGIN{} {} END{}' file.in
+	awk "{ if (!lines[$0]) { lines[$0] = 1; print $0 } }"	//删除相同行,可以不连续
 	NF(number field)  NR(number record)
 
 #sed搜索#
@@ -43,10 +44,11 @@ title: grep-awk-sed学习
 	sed 's/COL\(...\)//g' file.in	//删除COL以及其后的3个字母
 	sed 's/Mr/& Bruce/g' file.in	//在Mr后追加Bruce
 	sed 's/Mr/Bruce &/g' file.in	//在Mr前追加Bruce
-	//{} 在定位行执行的命令组,n读取下一行
-	//在hello匹配行后如果有world匹配行,那么之间插入rmbug
-	sed '/hello/{n;s/world/rmbug\n&/g}'
 	/pattern/ i\ a\	c\		//i前插a后插,类比vim的insert,c修改行
+
+	//{}在定位行执行命令组,n读取下一行
+	sed '/hello/{n;s/world/rmbug\n&/g}' file.in	//只会在world之前插入,可能截断world所在行
+	sed '/hello/n;/world/ i\rmbug' file.in		//在含有hello和world的相邻行之间插入rmbug行
 
 #sort排序#
 	sort -t: 域0 : 域1 : 域2 : ...	//可结合tail,head获得极值
