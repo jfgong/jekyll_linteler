@@ -48,7 +48,7 @@ title: grep-awk-sed学习
 	/pattern/ i\ a\	c\		//i前插a后插,类比vim的insert,c修改行
 
 	//{}在定位行执行命令组,n读取下一行
-	sed '/hello/{n;s/world/rmbug\n&/g}' file.in	//只会在world之前插入,可能截断world所在行
+	sed '/hello/{n;s/world/rmbug\n&/g}' file.in	//在world之前插入,可能会截断world所在行
 	sed '/hello/n;/world/ i\rmbug' file.in		//在含有hello和world的相邻行之间插入rmbug行
 
 #sort排序#
