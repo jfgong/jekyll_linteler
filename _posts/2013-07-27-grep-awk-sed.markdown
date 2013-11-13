@@ -32,8 +32,9 @@ title: grep-awk-sed学习
 	[!]~: awk '$0 ~ /str/' file.in	//目标模式/pattern/,默认输出$0
 	awk '{if($6 > $7) print $1}' file.in
 	awk 'BEGIN{} {} END{}' file.in
-	awk "{ if (!lines[$0]) { lines[$0] = 1; print $0 } }"	//删除相同行,可以不连续
 	NF(number field)  NR(number record)
+
+	awk '{if(!lines[$0]){lines[$0]=1;print $0}}' file.test	//删除相同行,可以不连续
 
 #sed搜索#
 	sed [options] 'command' input-file(s)
