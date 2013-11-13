@@ -40,9 +40,12 @@ title: grep-awk-sed学习
 	sed -n '/pattern/p' file.in	//-n取消默认的打印输出
 	sed -n '/pattern/=' file.in	//打印匹配模式的行号,d删除匹配行
 	sed '/^$/d' file.in		//删除空行
-	sed 's/COL\(...\)//g' file.in	//删除COL后的3个字母
+	sed 's/COL\(...\)//g' file.in	//删除COL以及其后的3个字母
 	sed 's/Mr/& Bruce/g' file.in	//在Mr后追加Bruce
 	sed 's/Mr/Bruce &/g' file.in	//在Mr前追加Bruce
+	//{} 在定位行执行的命令组,n读取下一行
+	//在hello匹配行后如果有world匹配行,那么之间插入rmbug
+	sed '/hello/{n;s/world/rmbug\n&/g}'
 	/pattern/ i\ a\	c\		//i前插a后插,类比vim的insert,c修改行
 
 #sort排序#
