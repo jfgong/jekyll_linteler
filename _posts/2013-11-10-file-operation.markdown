@@ -17,9 +17,6 @@ title: 文件操作
 
 #fgets, fputs#
 	char str[STRING_SIZE];
-	FILE* fp_r = fopen(file.in,"r");
-	FILE* fp_w = fopen(file.in,"w");
-
 	/*
 	 * When last line is "\n" in file, distinguish:
 	 * "!feof(fp)" and "NULL != fgets(str,len,fp)"
