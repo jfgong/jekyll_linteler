@@ -50,6 +50,7 @@ title: grep-awk-sed学习
 	//{}在定位行执行命令组,n读取下一行
 	sed '/hello/{n;s/world/rmbug\n&/g}' file.in	//在world之前插入,可能会截断world所在行
 	sed '/hello/n;/world/ i\rmbug' file.in		//在含有hello和world的相邻行之间插入rmbug行
+	sed '/hello/N;/world/ i\rmbug' file.in		//N,读入行与前一行全部作为当前行; n,最新读入行作为当前行
 
 #sort排序#
 	sort -t: 域0 : 域1 : 域2 : ...	//可结合tail,head获得极值
