@@ -56,5 +56,12 @@ title: liunx基本概念和操作
 
 在/bin或者/usr/bin中添加具体command的link
 
+2.配置长城宽带pppoe后,重启提示"waiting for network configuration",进入系统后网络连接的图标消失
+
+使用 sudo pppoeconf 命令时,会有信息写入/etc/network/interfaces 文件内,直接导致出现了上面的问题.
+打开/etc/network/interfaces文件,除下行外,其他内容全部删除，重启
+auto lo
+iface lo inet loopback
+
 
 Posted by randombug @ {{ page.date | date_to_string }}
