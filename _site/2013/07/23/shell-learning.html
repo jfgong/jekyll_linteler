@@ -34,27 +34,40 @@
 <pre><code>echo &quot;The PATH is: ${PATH:-not set}&quot;	//判断环境变量是否设置
 echo &quot;The TIME is: ${TIME:=15:37}&quot;	//若未设置,顺便赋值</code></pre>
 
-<h1 id='id20'>查找</h1>
+<h1 id='id20'>变量参数</h1>
+
+<pre><code>$0 脚本名,应用名        $[1-9]参数
+$# 参数个数		不包含$0在内
+$$ 进程ID               $? 退出状态,0表示无错误
+$@ 使用&quot;&quot;括起每个参数   $* 显示所有参数,可超过9个</code></pre>
+
+<h1 id='id21'>查找</h1>
 
 <pre><code>#将find输出作为grep &quot;string&quot; 的输入,无xargs,查找的是文件名
 find ./ -name &quot;[a-z]*.c&quot; | xargs grep &quot;string&quot;
-grep &quot;string&quot; file.in</code></pre>
+find ./ -name &quot;*&quot; -print0 | xargs -0 grep &quot;string&quot;
+grep -r &quot;string&quot; *		//当前目录下所有文件中搜索
+grep &quot;string&quot; file.in
+find ./ -empty -type d          //搜索当前目录下的空目录
+find ./ -empty -type f          //搜索当前目录下的空文件
+find ./ -name &quot;*&quot; -mmin -10	//过去10分钟修改的文件</code></pre>
 
-<h1 id='id21'>前台后台进程的切换</h1>
+<h1 id='id22'>前台后台进程的切换</h1>
 
 <pre><code>firefox 1&gt;/dev/null 2&gt;&amp;1 &amp;	//后台running
 firefox --&gt; ctrl+z --&gt; bg	//前台running --&gt; 后台stopped
 
 jobs (显示后台进程) -- fg N (转到前台running) -- bg N (转到后台running)</code></pre>
 
-<h1 id='id22'>输入输出</h1>
+<h1 id='id23'>输入输出</h1>
 
 <pre><code>#0 标准输入,1 标准输出,2 标准错误
 command file.in &lt;==&gt; command &lt; file.in &lt;==&gt; file.in | command
 echo -e &quot;your name: \c&quot; --&gt; read name
-cat &gt; file --&gt; content of file&lt;ctrl-d&gt;</code></pre>
+cat &gt; file --&gt; content of file&lt;ctrl-d&gt;
+cat &gt;&gt; file &lt;&lt; EOF		//向file追加内容,以EOF结束</code></pre>
 
-<h1 id='id23'>重定向-管道</h1>
+<h1 id='id24'>重定向-管道</h1>
 
 <pre><code># &gt;写入 &gt;&gt;追加
 sort &lt; file.in &gt; file.out	//&gt;操作会删除file.out的全部内容
@@ -64,10 +77,6 @@ command 1&gt;file.out 2&gt;file.out	//与上述不同,2&gt;会在file.out开始�
 #列出系统中所有的文件系统,注意重定向不会回显,而tee会回显
 df -k | awk &#39;{print $1}&#39; | grep -v &quot;Filesystem&quot; | sed &#39;s/\/dev\///g&#39; | tee file.system
 cat file.system</code></pre>
-
-<h1 id='id24'>分界符</h1>
-
-<pre><code>cat &gt;&gt; file.out &lt;&lt; eof		//接受输入知道eof字符出现</code></pre>
 
 <h1 id='id25'>命令执行顺序</h1>
 
@@ -84,6 +93,41 @@ test -d file &lt;==&gt; [ -d file ]	//d目录f正规文件L符号链接rwx读写
 <h1 id='id27'>循环</h1>
 
 <pre><code>while read LINE - do - done &lt; file.in</code></pre>
+
+<h1 id='shell'>定义shell函数</h1>
+
+<pre><code>source function.sh	//载入shell,以便在脚本和命令行中调用,set查看
+shift VS getopts	//get options</code></pre>
+
+<h1 id='id28'>调试</h1>
+
+<pre><code>set -x		//打开shell调试模式,先输出命令,再输出结果
+set +x		//关闭shell调试模式,搭配echo进行调试</code></pre>
+
+<h1 id='shell'>交互shell编程</h1>
+
+<pre><code>read ANS
+case $ANS in
+    y|Y)
+        command
+    ;;
+    n|N);;
+esac</code></pre>
+
+<h1 id='signaltrap'>signal信号和trap</h1>
+
+<pre><code>1, 2(ctrl-c), 3, 9(无条件终止),15
+trap &quot;&quot; signal(s)	//忽略信号
+trap &quot;function&quot; 2 3	//捕获信号2,3后执行function</code></pre>
+
+<h1 id='date'>date</h1>
+
+<pre><code>date +%m%d%y		//月日年
+date +%m-%d-%y		//月-日-年</code></pre>
+
+<p>Reference:</p>
+
+<p><a href=''>linux与unix shell编程指南</a></p>
 
 <p>Posted by randombug @ 23 Jul 2013</p>
 </div>

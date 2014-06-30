@@ -47,20 +47,20 @@ sudo /etc/init.d/udev restart</code></pre>
 
 <h1 id='adb'>重启adb服务</h1>
 
-<pre><code>sudo adb kill-server
+<pre><code>没配置adb环境变量的话，需要提供adb执行文件的绝对地址
+sudo adb kill-server
 sudo adb devices</code></pre>
-
-<p>没配置adb环境变量的话，需要提供adb执行文件的绝对地址</p>
 
 <h1 id='id13'>建立连接</h1>
 
-<p><code>adb shell</code>即可连上android手机 进入手机后权限是$，执行<code>su</code>，获得root权限</p>
+<pre><code>`adb shell`即可连上android手机
+进入手机后权限是$，执行`su`，获得root权限</code></pre>
 
-<h1 id='id14'>拷贝文件</h1>
+<h1 id='id14'>拷贝安装</h1>
 
-<pre><code>adb push Downloads/怒放的生命.mp3 /sdcard/music/</code></pre>
-
-<p>注意是在桌面环境下执行</p>
+<pre><code>注意是在桌面环境下执行
+adb push Downloads/怒放的生命.mp3 /sdcard/music/
+adb install JetBoy.apk</code></pre>
 
 <p>其他操作：</p>
 

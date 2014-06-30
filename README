@@ -5,7 +5,7 @@ $ git commit -m "first post"
 
 #将本地内容推送到github上的库
 
-$ git remote add origin https://github.com/jfgong/jekyll_linteler.git
+#$ git remote add origin https://github.com/jfgong/jekyll_linteler.git
 
 $ git push origin gh-pages
 
