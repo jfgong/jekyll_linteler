@@ -16,6 +16,6 @@ $ git push origin gh-pages
 #运行本地 Jekyll 服务`jekyll server`, 访问 http://localhost:4000 即可.
 
 # git pull 项目到本地
-mkdir jekyll_linteler
-git init
-git pull https://github.com/jfgong/jekyll_linteler.git
+$ mkdir jekyll_linteler
+$ git init
+$ git pull https://github.com/jfgong/jekyll_linteler.git
