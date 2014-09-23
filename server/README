@@ -1,0 +1,21 @@
+#把所有内容加入本地git库。
+
+$ git add .
+$ git commit -m "first post"
+
+#将本地内容推送到github上的库
+
+#$ git remote add origin https://github.com/jfgong/jekyll_linteler.git
+
+$ git push origin gh-pages
+
+#上传成功后，等10分钟左右，便可访问http://jfgong.github.com/jekyll_linteler/
+
+
+#本地编辑时,可以使用jekyll的本地预览功能
+#运行本地 Jekyll 服务`jekyll server`, 访问 http://localhost:4000 即可.
+
+# git pull 项目到本地
+mkdir jekyll_linteler
+git init
+git pull https://github.com/jfgong/jekyll_linteler.git

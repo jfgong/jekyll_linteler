@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>adb调试android</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">Random Bug's site</a></h1>
+            </div>
+
+                <h2>adb调试android</h2>
+<p class="meta">15 Jul 2013</p>
+
+<div class="post">
+<h1 id='id10'>配置文件</h1>
+
+<p>断开手机物理连接后重新连上，比较两种条件下的lsusb输出差别：</p>
+
+<pre><code>Bus 003 Device 003: ID 19d2:1382 ZTE WCDMA Technologies MSM</code></pre>
+
+<p>在/etc/udev/rules.d/目录下创建配置文件: android_smartphone.rules</p>
+
+<p>配置参数:</p>
+
+<pre><code>#ZTE U880
+SUBSYSTEM==&quot;usb&quot;, SYSFS{&quot;High Tech Computer Corp.&quot;}==&quot;19D2&quot;, MODE=&quot;0666&quot;</code></pre>
+
+<p>其中的19D2取自lsusb的输出.</p>
+
+<p>设定配置文件的权限</p>
+
+<pre><code>sudo chmod a+rx /etc/udev/rules.d/android_smartphone.rules
+sudo /etc/init.d/udev restart</code></pre>
+
+<h1 id='adb'>重启adb服务</h1>
+
+<pre><code>没配置adb环境变量的话，需要提供adb执行文件的绝对地址
+sudo adb kill-server
+sudo adb devices</code></pre>
+
+<h1 id='id11'>建立连接</h1>
+
+<pre><code>`adb shell`即可连上android手机
+进入手机后权限是$，执行`su`，获得root权限</code></pre>
+
+<h1 id='id12'>拷贝安装</h1>
+
+<pre><code>注意是在桌面环境下执行
+adb push Downloads/怒放的生命.mp3 /sdcard/music/
+adb install JetBoy.apk</code></pre>
+
+<p>其他操作：</p>
+
+<pre><code>The &quot;adb push &lt;local&gt; &lt;remote&gt;&quot; copies a file or folder from the local system to the remote emulator or device.    
+The &quot;adb pull &lt;remote&gt; &lt;local&gt;&quot; copies a file or folder from the remote emulator or device to the local system.    
+The &quot;adb install xx.apk&quot; or &quot;adb push xx.apk /system/app&quot; installs software on connected Android emulator or device.</code></pre>
+
+<h1 id='reference'>Reference:</h1>
+
+<p><a href='http://blog.csdn.net/zhenwenxian/article/details/5901350'>Linux下Android ADB驱动安装详解</a></p>
+
+<p><a href='http://www.pocketdigi.com/20110409/238.html'>adb shell 连接手机使用Root权限，sqlite</a></p>
+
+<p><a href='http://blog.csdn.net/xuxinshao/article/details/7182002'>android adb push 与 adb install的比较(两种安装APK的方法)</a></p>
+
+<p>Posted by randombug @ 15 Jul 2013</p>
+</div>
+
+
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

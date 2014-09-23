@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>更新照片的文件名</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">Random Bug's site</a></h1>
+            </div>
+
+                <h2>更新照片的文件名</h2>
+<p class="meta">06 Oct 2013</p>
+
+<div class="post">
+<p>这次国庆回去,拍了一些照片,整理的时候,再次碰到纠结的问题,相机的默认命名方式是在独立目录下使用IMG_1234这种形式,当需要将不同目录下的照片汇总到一起的时候,就会出现重名的现象.这种命名方式几乎想不到有任何的意义,所以准备将之修改为相机中使用时间来命名的方式.</p>
+
+<p>查资料发现<code>stat</code>虽然可以查阅文件的访问,修改和状态更新时间,但是并不能获得照片的最原始创建时间即拍摄时间,但是我们在右键属性中却可以看到拍摄的时间,所以可以考虑对照片进行文本处理的方式来获得拍摄信息.</p>
+
+<p>通过<code>grep -ao</code>过滤得到照片的创建时间</p>
+
+<pre><code>#!/bin/sh 
+sourceDir=$1
+destDir=$2
+mkdir $destDir
+filelist=`ls $sourceDir`
+echo $filelist
+echo &quot;total have `ls $sourceDir | wc -l` files, waiting to change name&quot;
+
+#filter keywords like &quot;2013:10:06 18:30:56&quot;
+pattern=&quot;[0-9]\{4\}:[0-9]\{2\}:[0-9]\{2\} [0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}&quot;
+
+for oldName in $filelist
+do
+    echo &quot;Rename $oldName ......&quot;  
+    #cannot use &#39;$pattern&#39;
+    shootTime=`grep -ao &quot;$pattern&quot; $sourceDir/$oldName | sort -u`
+
+    echo &quot;$sourceDir/$oldName&#39;s shoot time is: $shootTime&quot;
+    base=`echo $shootTime | awk -F&quot;[: ]&quot; &#39;{print $1$2$3&quot;_&quot;$4$5$6}&#39;`
+    #sed &#39;s\ \:\g&#39; $shootTime
+    #base=`echo $shootTime | awk -F: &#39;{print $1$2$3&quot;_&quot;$4$5$6}&#39;`
+
+    suffix=`echo $oldName | awk -F. &#39;{print $NF}&#39;`
+    newName=&quot;$base.$suffix&quot;
+
+    echo &quot;New name is: $destDir/$newName&quot;
+    cp $sourceDir/$oldName $destDir/$newName
+done</code></pre>
+
+<p>上述代码中,简单赘述:</p>
+
+<ol>
+<li><code>grep -ao</code>,其中-a将照片视为文本文件来处理,否则只会提示&#8221;Binary file * matches&#8221;,而-o使grep只输出匹配项.</li>
+
+<li>其中pattern变量设置的是形如&#8221;2013:10:06 18:30:56&#8221;类型的关键字模式</li>
+
+<li><code>awk -F&quot;[: ]&quot;</code>指定:和空格作为间隔符</li>
+</ol>
+
+<p>Posted by randombug @ 06 Oct 2013</p>
+</div>
+
+
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

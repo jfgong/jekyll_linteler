@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>grep-awk-sed学习</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">Random Bug's site</a></h1>
+            </div>
+
+                <h2>grep-awk-sed学习</h2>
+<p class="meta">27 Jul 2013</p>
+
+<div class="post">
+<h1 id='id32'>元字符&#8211;正则表达式</h1>
+
+<pre><code>[]		//匹配其中任意一个字符
+* ? [!0-9]	//元字符
+* . [^0-9]	//正则表达式
+^$		//开头或结尾
+*,?,+		//0次或更多,0次或1次,1次或更多</code></pre>
+
+<h1 id='grep'>grep搜索</h1>
+
+<pre><code>-v(排除字符串)
+-i(关闭缺省的大小写敏感)
+-l(只显示匹配的文件名)
+-o(只显示匹配的关键字)
+-E(允许使用扩展模式|&amp;)		//??&amp;是怎么用的?
+-c(统计匹配行数)
+-n(显示行号)
+grep -o &quot;string&quot; file | wc -l	//匹配次数
+grep -n &quot;\&lt;string\&gt;&quot; file.in	//精确匹配(忽略标点符号)
+grep &#39;a\{2,4\}&#39; file.in		//字符a出现2次至4次
+grep -rE &#39;string1|string2&#39; *			//文件中含有string1或string2
+grep -rl &quot;string1&quot; * | xargs grep -l &quot;string2&quot;	//文件中含有string1和string2
+grep -rn &quot;string&quot; *		//当前目录下所有文件中搜索字符</code></pre>
+
+<h1 id='awk'>awk搜索</h1>
+
+<pre><code>awk [-F field-separator] &#39;command&#39; input-file(s)
+记录:	域1 # 域2 # 域3		//使用&#39;{print $n}&#39;抽取域
+-F:				//指定:作为分隔符,缺省空格
+[!]~: awk &#39;$0 ~ /str/&#39; file.in	//目标模式/pattern/,默认输出$0
+awk &#39;{if($6 &gt; $7) print $1}&#39; file.in
+awk &#39;BEGIN{} {} END{}&#39; file.in
+NF(number field)  NR(number record)
+
+awk &#39;{if(!lines[$0]){lines[$0]=1;print $0}}&#39; file.test	//删除相同行,可以不连续</code></pre>
+
+<h1 id='sed'>sed搜索</h1>
+
+<pre><code>sed [options] &#39;command&#39; input-file(s)
+sed &#39;s/from/to/[gpwn]&#39; file.in	//将from替换成to
+sed -n &#39;/pattern/p&#39; file.in	//-n取消默认的打印输出
+sed -n &#39;/pattern/=&#39; file.in	//打印匹配模式的行号,d删除匹配行
+sed &#39;/^$/d&#39; file.in		//删除空行
+sed &#39;s/COL\(...\)//g&#39; file.in	//删除COL以及其后的3个字母
+sed &#39;s/Mr/&amp; Bruce/g&#39; file.in	//在Mr后追加Bruce
+sed &#39;s/Mr/Bruce &amp;/g&#39; file.in	//在Mr前追加Bruce
+/pattern/ i\ a\	c\		//i前插a后插,类比vim的insert,c修改行
+
+//{}在定位行执行命令组,n读取下一行
+sed &#39;/hello/{n;s/world/rmbug\n&amp;/g}&#39; file.in	//在world之前插入,可能会截断world所在行
+sed &#39;/hello/n;/world/ i\rmbug&#39; file.in		//在含有hello和world的相邻行之间插入rmbug行
+sed &#39;/hello/N;/world/ i\rmbug&#39; file.in		//N,读入行与前一行全部作为当前行; n,最新读入行作为当前行</code></pre>
+
+<h1 id='sort'>sort排序</h1>
+
+<pre><code>sort -t: 域0 : 域1 : 域2 : ...	//可结合tail,head获得极值
+sort -t: -k2 file.in		//根据域1来分类,将域看作是从1开始
+sort -t: -k3 -n  file.in 	//当域2是数值时,-n,否则数值被视作字符
+sort -u -k2 -k3 file.in 	//去除重复行,先以域1排序,再以域2排序</code></pre>
+
+<h1 id='trsed'>tr删除替换(都可用sed来实现)</h1>
+
+<pre><code>tr -cds [&quot;from&quot;] [&quot;to&quot;] &lt;file	//c:from的补集-d删除-s去重
+tr -s [&quot;\n&quot;] &lt;file.in		//对空行去重
+tr -s [&quot;:&quot;] [&quot;\t&quot;] &lt;file.in	//将:去重(保留一个),然后被替换成Tab
+tr [&quot;A-Z&quot;] [&quot;a-z&quot;] &lt;file.in	//大小写转换</code></pre>
+
+<p>Posted by randombug @ 27 Jul 2013</p>
+</div>
+
+
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>
