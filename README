@@ -13,7 +13,7 @@ $ git push origin gh-pages
 
 
 #本地编辑时,可以使用jekyll的本地预览功能
-#运行本地 Jekyll 服务`jekyll server`, 访问 http://localhost:4000 即可.
+#运行本地 Jekyll 服务`jekyll server`或者`jekyll --server`, 访问 http://localhost:4000 即可.
 
 # git pull 项目到本地
 $ git clone https://github.com/jfgong/jekyll_linteler.git jekyll_linteler
