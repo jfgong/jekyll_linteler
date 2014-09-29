@@ -19,7 +19,7 @@ $ git push origin gh-pages
 $ git clone https://github.com/jfgong/jekyll_linteler.git jekyll_linteler
 $ cd jekyll_linteler
 $ git checkout --orphan gh-pages
-  ... Edit some file ...
+  .... Edit some file ...
 $ git add filename
 $ git commit -m "First pages commit"
 $ git push origin gh-pages
