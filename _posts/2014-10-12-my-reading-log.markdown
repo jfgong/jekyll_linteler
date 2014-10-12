@@ -1,6 +1,6 @@
 ---
 layout: post 
-title: grep-awk-sed学习 
+title: my-reading-log
 ---
 
 很久没有看书写日志了，没有斗志，没有激情，最近窗外的遮阳棚被风撩起来了，光线大好，终于不觉得黑暗压抑了，也有了一些看书的兴致。
