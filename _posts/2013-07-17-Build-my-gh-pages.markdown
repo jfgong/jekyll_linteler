@@ -33,7 +33,7 @@ If you are working with a user pages repository, this should be done in the mast
 4.设置domain.tk访问时，DNSPOD中添加记录：@ A 204.232.175.78，其中ip地址在Ref3中可以查询，但是CNAME文件不可以直接设置为两个，如果需要添加，参见Ref4
 
 
-Reference:
+#Reference:#
 
 [搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
 
