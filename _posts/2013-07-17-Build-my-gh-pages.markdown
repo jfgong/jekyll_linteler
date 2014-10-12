@@ -34,14 +34,9 @@ If you are working with a user pages repository, this should be done in the mast
 
 
 Reference:
-1.搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门
-http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html
-2.使用Github Pages建独立博客
-http://beiyuu.com/github-pages/
-3.My custom domain isn't working
-https://help.github.com/articles/my-custom-domain-isn-t-working
-4.Setting up a custom domain with Pages
-https://help.github.com/articles/setting-up-a-custom-domain-with-pages
-
+[搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门](http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html)
+[使用Github Pages建独立博客](http://beiyuu.com/github-pages/)
+[My custom domain isn't working](https://help.github.com/articles/my-custom-domain-isn-t-working)
+[Setting up a custom domain with Pages](https://help.github.com/articles/setting-up-a-custom-domain-with-pages)
 
 <p>Posted by randombug @ {{ page.date | date_to_string }}</p>
