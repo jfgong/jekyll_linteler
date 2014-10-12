@@ -9,5 +9,7 @@ title: 梦想
 
 3.早起的人有着不一样的世界
 
+4.小李子说我越来越懒了，不可以这样无为，要进步啊！
+
 
 Posted by randombug @ {{ page.date | date_to_string }}
